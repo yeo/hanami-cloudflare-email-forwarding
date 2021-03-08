@@ -21,8 +21,8 @@
     },
     {
       "type": "CNAME",
-      "name": "hanamidefault._domainkey",
-      "content": "hanami_cf.dkim.",
+      "name": "hanamicloudflare._domainkey",
+      "content": "hanami_cf.dkim.hanami.run",
       "priority": 20,
       "proxied": false
     }
