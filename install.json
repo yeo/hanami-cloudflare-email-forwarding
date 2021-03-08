@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json.schemastore.org/install",
+  "dns": [
+    {
+      "type": "TXT",
+      "content": "v=spf1 include:spf.hanami.run ~all",
+      "name": "@",
+      "ttl": 120
+    },
+    {
+     "type": "MX",
+     "name": "@",
+     "content": "mx1.hanami.run",
+     "priority": 10
+    },
+    {
+     "type": "MX",
+     "name": "@",
+     "content": "mx2.hanami.run",
+     "priority": 20
+    },
+    {
+      "type": "CNAME",
+      "name": "hanamidefault._domainkey",
+      "content": "hanami_cf.dkim.",
+      "priority": 20,
+      "proxied": false
+    }
+  ],
+  "preview": {
+    "hide": true
+  },
+  "options": {
+    "properties": {
+      "default_alias": {
+        "title": "Forward All Email On This Domain To",
+        "description": "You need to register with <a target=\"_blank\" href='https://hanami.run?from=cloudflare'>hanami.run</a> later on to finish setting up email forwarding. This app helps pre-configure all the DNS records and pre-populate data on hanami.run platform to make this integration easier.",
+        "type": "string",
+        "format": "email",
+        "order": 0,
+        "default": ""
+      }
+    }
+  }
+}
