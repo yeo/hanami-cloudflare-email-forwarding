@@ -1,5 +1,17 @@
 {
   "$schema": "http://json.schemastore.org/install",
+  "hooks": [
+    {
+      "endpoint": "https://api.hanami.run/v1/hook/cf",
+      "events": ["option-change:account", "item-add", "new-install"],
+      "block": false,
+      "authenticate": ["account"],
+      "failure": {
+        "action": "notify",
+        "message": "There was an error communicating with hanami"
+      }
+    }
+  ],
   "dns": [
     {
       "type": "TXT",
@@ -8,28 +20,29 @@
       "ttl": 120
     },
     {
-     "type": "MX",
-     "name": "@",
-     "content": "mx1.hanami.run",
-     "priority": 10
+      "type": "MX",
+      "name": "@",
+      "content": "mx1.hanami.run",
+      "priority": 1
     },
     {
-     "type": "MX",
-     "name": "@",
-     "content": "mx2.hanami.run",
-     "priority": 20
+      "type": "MX",
+      "name": "@",
+      "content": "mx2.hanami.run",
+      "priority": 5
     },
     {
       "type": "CNAME",
       "name": "hanamicloudflare._domainkey",
       "content": "hanami_cf.dkim.hanami.run",
-      "priority": 20,
       "proxied": false
     }
   ],
+
   "preview": {
     "hide": true
   },
+
   "options": {
     "properties": {
       "default_alias": {
